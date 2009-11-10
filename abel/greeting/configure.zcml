@@ -5,13 +5,13 @@
 
     
   <interface 
-    interface=".interfaces.IGreeting" />
+    interface=".interfaces.IChangeGreeting" />
     
   <browser:page 
     for="Products.GSContent.interfaces.IGSSiteFolder"
     layer="gs.skin.abel.base.interfaces.IABELSkin"
     name="change_greeting.html"
-    class="changegreeting.ChangeGreeting"
+    class=".changegreeting.ChangeGreeting"
     template="browser/templates/changegreeting.pt"
     permission="zope2.ManageProperties" />
 

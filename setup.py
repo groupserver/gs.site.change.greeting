@@ -26,7 +26,7 @@ setup(name='abel.greeting',
       url='http://abel.ac.nz',
       license='other',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['abel', 'abel.enrolment'],
+      namespace_packages=['abel',],
       include_package_data=True,
       zip_safe=True,
       install_requires=[
