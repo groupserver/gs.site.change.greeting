@@ -4,6 +4,18 @@
       <span tal:replace="view/label"/>:
       <span tal:replace="view/siteInfo/name"/>
     </title>
+    <style type="text/css" metal:fill-slot="style">
+      #preview {
+        margin-left: 1.39em;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        display: inline;
+        padding-right: 1.39em;
+      }
+    </style>
   </head>
   <body>
     <div metal:fill-slot="messages" tal:condition="view/status" 
@@ -40,12 +52,16 @@
       </form>
       <div id="preview">
         <h2>Preview</h2>
-        <div tal:replace="provider:groupserver.UserImage">Photo</div>
-        <p><strong><span id="greeting">Well met</span>,</strong> 
-          <span class="fn">Traveler</span>
-        <p>Your Groups</p>
+        <div tal:replace="structure provider:groupserver.UserImage">Photo</div>
+        <p><strong><span id="greeting">Well met</span>,
+            <span class="fn" tal:content="view/userInfo/name">Traveler</span></strong> 
+        <h3>Your Groups</h3>
         <ul id="groups">
-          <li>Group</li>
+          <tal:block repeat="group view/groupMembership">
+            <li><a class="group" href="#"
+              tal:attributes="href group/url"
+              tal:content="group/name">Group</a></li> 
+          </tal:block>
         </ul>
       </div><!--preview-->
     </tal:block>
@@ -63,10 +79,12 @@
           var greeting = '';
           greeting  = jQuery('#form\\.greeting').val();
           jQuery('#greeting').text(greeting);
+          return False;
         };
         jQuery(document).ready( function() {
             jQuery('#form\\.greeting').focus();
-            jQuery('#form\\.greeting').keypress(updatePreview);
+            jQuery('#form\\.greeting').keyup(updatePreview);
+            updatePreview(null);
         });
       </script>
     </tal:block>
