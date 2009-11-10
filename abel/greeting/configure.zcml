@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="groupserver">
+
+    
+  <interface 
+    interface=".interfaces.IGreeting" />
+    
+  <browser:page 
+    for="Products.GSContent.interfaces.IGSSiteFolder"
+    layer="gs.skin.abel.base.interfaces.IABELSkin"
+    name="change_greeting.html"
+    class="changegreeting.ChangeGreeting"
+    template="browser/templates/changegreeting.pt"
+    permission="zope2.ManageProperties" />
+
+</configure>
+
