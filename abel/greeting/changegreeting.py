@@ -10,6 +10,7 @@ class ChangeGreeting(PageForm):
     pageTemplateFileName = 'browser/templates/changegreeting.pt'
     template = ZopeTwoPageTemplateFile(pageTemplateFileName)
     form_fields = form.Fields(IChangeGreeting)
+    greetingProp = 'greeting'
     
     def __init__(self, context, request):
         PageForm.__init__(self, context, request)
@@ -17,6 +18,17 @@ class ChangeGreeting(PageForm):
         self.__groupsInfo = None
         self.__userInfo = None
         
+    def setUpWidgets(self, ignore_request=False):
+        divisionConfig = self.context.DivisionConfiguration
+        data = {
+          'greeting': divisionConfig.getProperty(self.greetingProp, 'Hi'),
+        }
+        self.widgets = form.setUpWidgets(
+            self.form_fields, self.prefix, self.context,
+            self.request, form=self, data=data,
+            ignore_request=ignore_request)
+        assert self.widgets
+       
     @property
     def userInfo(self):
         if self.__userInfo == None:
@@ -41,7 +53,20 @@ class ChangeGreeting(PageForm):
 
     @form.action(label=u'Change', failure='handle_change_action_failure')
     def handle_set(self, action, data):
-        self.status = u"I don't handle change!"
+        assert data
+        greeting = data['greeting']
+        assert self.greetingProp
+        
+        divisionConfig = self.context.DivisionConfiguration
+        if hasattr(divisionConfig, self.greetingProp):
+            divisionConfig.manage_changeProperties(REQUEST=None,
+                **{self.greetingProp: greeting})
+        else:
+            divisionConfig.manage_addProperty(self.greetingProp, 
+                greeting, 'string')
+
+        self.status = u"Changed the greeting to <q>%s</q>" % greeting
+            
 
     def handle_change_action_failure(self, action, data, errors):
         if len(errors) == 1:
