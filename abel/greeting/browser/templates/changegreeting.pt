@@ -6,12 +6,23 @@
     </title>
     <style type="text/css" metal:fill-slot="style">
       #preview {
-        margin-left: 1.39em;
+        margin: 1.39em 0px 0px 1.39em;
+      }
+      #preview h2 {
+        margin-top: 0px;
+        margin-bottom: 0.34em; /*1u*/
+      }
+      #preview li {
+        list-style: none;
+        margin-bottom: 0.69em;
       }
       ul {
-        list-style: none;
+        margin-top: 0.69em;
       }
-      li {
+      #groups {
+        line-height: 2.08em;
+      }
+      #groups li, #youlinks li {
         display: inline;
         padding-right: 1.39em;
       }
@@ -53,15 +64,29 @@
       <div id="preview">
         <h2>Preview</h2>
         <div tal:replace="structure provider:groupserver.UserImage">Photo</div>
-        <p><strong><span id="greeting">Well met</span>,
-            <span class="fn" tal:content="view/userInfo/name">Traveler</span></strong> 
-        <h3>Your Groups</h3>
-        <ul id="groups">
-          <tal:block repeat="group view/groupMembership">
-            <li><a class="group" href="#"
-              tal:attributes="href group/url"
-              tal:content="group/name">Group</a></li> 
-          </tal:block>
+        <h2><span id="greeting">Well met</span>,
+            <span class="fn" tal:content="view/userInfo/name">Traveler</span></h2> 
+        <ul>
+          <li>
+            <ul id="youlinks">
+              <li>
+                <a href="#" 
+                  tal:attributes="href view/userInfo/url"><strong>Your
+                    profile</strong></a></li>
+              <li>
+                <a href="/results/result"><strong>Your results</strong></a></li>
+            </ul>
+          </li>
+          <li>
+            <ul id="groups">
+              <li><strong class="label">Your Groups:</strong></li>
+              <tal:block repeat="group view/groupMembership">
+                <li><a class="group" href="#"
+                  tal:attributes="href group/url"
+                  tal:content="group/name">Group</a></li> 
+              </tal:block>
+            </ul>
+          </li>
         </ul>
       </div><!--preview-->
     </tal:block>
