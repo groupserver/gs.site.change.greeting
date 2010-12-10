@@ -3,7 +3,7 @@ from zope.formlib import form
 from zope.component import createObject
 from five.formlib.formbase import PageForm
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
-from abel.greeting.interfaces import IChangeGreeting
+from interfaces import IChangeGreeting
 
 class ChangeGreeting(PageForm):
     label = u'Change Greeting'
