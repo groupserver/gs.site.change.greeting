@@ -63,7 +63,7 @@ class ChangeGreeting(PageForm):
                 **{self.greetingProp: greeting})
         else:
             divisionConfig.manage_addProperty(self.greetingProp, 
-                greeting, 'string')
+                greeting, 'ustring')
 
         self.status = u"Changed the greeting to <q>%s</q>" % greeting
             
