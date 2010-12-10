@@ -1,5 +1,5 @@
 Introduction
 ============
 
-The configurable greeting on the ABEL site.
+A configurable greeting.
 

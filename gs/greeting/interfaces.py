@@ -1,7 +1,6 @@
 # coding=utf-8
-from zope.interface.interface import Interface, Invalid, invariant
-from zope.schema import *
-from Products.GSProfile.emailaddress import EmailAddress
+from zope.interface.interface import Interface
+from zope.schema import TextLine
 
 class IChangeGreeting(Interface):
     greeting = TextLine(title=u'Greeting',

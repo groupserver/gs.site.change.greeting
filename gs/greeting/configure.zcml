@@ -3,13 +3,10 @@
   xmlns:browser="http://namespaces.zope.org/browser"
   i18n_domain="groupserver">
 
-    
   <interface 
-    interface=".interfaces.IChangeGreeting" />
-    
+    interface=".interfaces.IChangeGreeting" />    
   <browser:page 
     for="Products.GSContent.interfaces.IGSSiteFolder"
-    layer="gs.skin.abel.base.interfaces.IABELSkin"
     name="change_greeting.html"
     class=".changegreeting.ChangeGreeting"
     template="browser/templates/changegreeting.pt"

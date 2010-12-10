@@ -4,9 +4,9 @@ import os
 
 from version import get_version
 
-setup(name='abel.greeting',
+setup(name='gs.greeting',
       version=get_version(),
-      description="ABEL Change Greeting",
+      description="GroupServer Configurable Greeting",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
@@ -20,20 +20,19 @@ setup(name='abel.greeting',
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='abel candidate',
+      keywords='groupserver greeting',
       author='Michael JasonSmith',
       author_email='mpj17@onlinegroups.net',
-      url='http://abel.ac.nz',
+      url='http://www.onlinegroups.net',
       license='other',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['abel',],
+      namespace_packages=['gs',],
       include_package_data=True,
       zip_safe=True,
       install_requires=[
           'setuptools',
           'Products.XWFCore',
           'Products.GSContent',
-          'gs.skin.abel.base',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
