@@ -4,37 +4,13 @@
       <span tal:replace="view/label"/>:
       <span tal:replace="view/siteInfo/name"/>
     </title>
-    <style type="text/css" metal:fill-slot="style">
-      #preview {
-        margin: 1.39em 0px 0px 1.39em;
-      }
-      #preview h2 {
-        margin-top: 0px;
-        margin-bottom: 0.34em; /*1u*/
-      }
-      #preview li {
-        list-style: none;
-        margin-bottom: 0.69em;
-      }
-      ul {
-        margin-top: 0.69em;
-      }
-      #groups {
-        line-height: 2.08em;
-      }
-      #groups li {
-        display: inline;
-        padding-right: 1.39em;
-      }
-    </style>
   </head>
   <body>
     <tal:block content="structure provider:groupserver.FormStatusMessage"
       define="errors view/errors; status view/status; widgets view/widgets"
       metal:fill-slot="messages">&#160;</tal:block>
-    <tal:block metal:fill-slot="contextnavigation">
-    </tal:block>
-    <tal:block metal:fill-slot="body">
+    <tal:block metal:fill-slot="contextnavigation">&#160;</tal:block>
+    <div id="gs-greeting-changegreeting" metal:fill-slot="body">
       <form enctype="multipart/form-data"  method="post" action="."
         tal:attributes="action request/URL" id="change-greeting">
         <h1 tal:content="view/label">Change Greeting</h1>
@@ -54,7 +30,7 @@
         <div tal:replace="structure provider:groupserver.UserImage">Photo</div>
         <h2><span id="greeting">Well met</span>,
             <span class="fn" tal:content="view/userInfo/name">Traveler</span></h2> 
-        <ul id="groups">
+        <ul id="groups" class="inline-list">
           <li><strong class="label">Your Groups:</strong></li>
           <tal:block repeat="group view/groupMembership">
             <li><a class="group" href="#"
@@ -63,7 +39,7 @@
           </tal:block>
         </ul>
       </div><!--preview-->
-    </tal:block>
+    </div><!--gs-greeting-changegreeting-->
     <tal:block metal:fill-slot="javascript">
       <script type="text/javascript"
         src="/++resource++check_required-20071214.js">&#160;</script>
