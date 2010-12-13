@@ -11,6 +11,13 @@
     class=".changegreeting.ChangeGreeting"
     template="browser/templates/changegreeting.pt"
     permission="zope2.ManageProperties" />
+    
+  <!--Help-->
+  <browser:viewlet name="gs-greeting-help"
+    manager="gs.help.interfaces.IAdminHelp"
+    template="browser/templates/help.pt"
+    permission="zope.Public"
+    weight="2" />
 
 </configure>
 
