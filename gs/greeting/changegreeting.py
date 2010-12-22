@@ -53,9 +53,9 @@ class ChangeGreeting(PageForm):
 
     @form.action(label=u'Change', failure='handle_change_action_failure')
     def handle_set(self, action, data):
-        assert data
+        assert data, 'No data'
         greeting = data['greeting']
-        assert self.greetingProp
+        assert self.greetingProp, 'No greeting'
         
         divisionConfig = self.context.DivisionConfiguration
         if hasattr(divisionConfig, self.greetingProp):
@@ -63,7 +63,9 @@ class ChangeGreeting(PageForm):
                 **{self.greetingProp: greeting})
         else:
             divisionConfig.manage_addProperty(self.greetingProp, 
-                greeting, 'ustring')
+                '', 'string')
+            divisionConfig.manage_changeProperties(REQUEST=None,
+                **{self.greetingProp: greeting})
 
         self.status = u"Changed the greeting to <q>%s</q>" % greeting
             
