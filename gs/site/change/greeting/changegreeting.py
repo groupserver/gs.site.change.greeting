@@ -1,11 +1,11 @@
 # coding=utf-8
 from zope.formlib import form
+from gs.content.form import SiteForm
 from zope.component import createObject
-from five.formlib.formbase import PageForm
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from interfaces import IChangeGreeting
 
-class ChangeGreeting(PageForm):
+class ChangeGreeting(SiteForm):
     label = u'Change Greeting'
     pageTemplateFileName = 'browser/templates/changegreeting.pt'
     template = ZopeTwoPageTemplateFile(pageTemplateFileName)
@@ -13,8 +13,7 @@ class ChangeGreeting(PageForm):
     greetingProp = 'greeting'
     
     def __init__(self, context, request):
-        PageForm.__init__(self, context, request)
-        self.siteInfo = createObject('groupserver.SiteInfo', context)
+        SiteForm.__init__(self, context, request)
         self.__groupsInfo = None
         self.__userInfo = None
         

@@ -1,10 +1,12 @@
 <div id="gs-greeting">
-  <h2>Changing the Site Greeting</h2>
+  <h2>Change the Site Greeting</h2>
   <p>
+    The site greeting is shown on the homepage to logged in members of 
+    this site.
     To change the site greeting, carry out the following tasks.
   </p>
   <ol>
-    <li>Go to the Change Greeting page.</li>
+    <li>Go to the <cite>Change Greeting</cite> page.</li>
     <li>Enter the greeting you wish to appear on the site
       homepage in the <samp class="entry">Greeting</samp> entry.
       You can see a preview of the greeting below the form. 
