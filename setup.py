@@ -4,7 +4,7 @@ import os
 
 from version import get_version
 
-setup(name='gs.greeting',
+setup(name='gs.site.change.greeting',
       version=get_version(),
       description="GroupServer Configurable Greeting",
       long_description=open("README.txt").read() + "\n" +
@@ -26,7 +26,7 @@ setup(name='gs.greeting',
       url='http://www.onlinegroups.net',
       license='other',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['gs',],
+      namespace_packages=['gs', 'gs.site', 'gs.site.change',],
       include_package_data=True,
       zip_safe=True,
       install_requires=[
