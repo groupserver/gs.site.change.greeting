@@ -1,6 +1,6 @@
 # coding=utf-8
 from zope.formlib import form
-from gs.content.form import SiteForm
+from gs.content.form.form import SiteForm
 from zope.component import createObject
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from interfaces import IChangeGreeting
