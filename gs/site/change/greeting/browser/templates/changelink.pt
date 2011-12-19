@@ -1,0 +1,5 @@
+<li id="gs-site-change-greeting-link">
+  <a href="/change_greeting.html">Change the <strong>greeting</strong></a>
+  that is shown to logged in members of this site.
+</li>
+
