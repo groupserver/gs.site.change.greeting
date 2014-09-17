@@ -7,8 +7,8 @@ from version import get_version
 setup(name='gs.site.change.greeting',
       version=get_version(),
       description="GroupServer Configurable Greeting",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
